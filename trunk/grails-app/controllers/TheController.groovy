@@ -10,8 +10,8 @@ class TheController
 		
 		int i = 0
 
-		theService.service(++i) 
-		anotherService.service(++i) 
+		println theService.service(++i) 
+		println anotherService.service(++i) 
 
 		log.debug "end TheController.index"
 		println "end TheController.index"

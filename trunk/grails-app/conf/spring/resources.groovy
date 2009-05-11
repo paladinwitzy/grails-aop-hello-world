@@ -5,13 +5,48 @@ beans = {
 	theAspect(TheAspect)
 	anotherAspect(apackage.AnotherAspect)
 
+	// aop { 
+	// 	config { 
+	// 		aspect(ref:"theAspect") { 
+	// 			pointcut id:"thePointcut", expression:"execution(* *.TheServiceInterface.service(Integer)) && args(i)" 
+	// 			around 'pointcut-ref':"thePointcut", method:"invoke", 'arg-names':"i"
+	// 		} 
+	// 	} 
+	// }    
+
+	// aop { 
+	// 	config("proxy-target-class":true) { 
+	// 		aspect(id:"theAspectId", ref:"theAspect" ) { 
+	// 			around method:"invoke", pointcut: "execution(* *.TheServiceInterface.service(Integer)) && args(i)", 'arg-names':"i"
+	// 		} 
+	// 	} 
+	// }    
+
+	// aop { 
+	// 	config { 
+	// 		aspect(ref:"anotherAspect") { 
+	// 			pointcut id:"thePointcut", expression:"execution(* *.AnotherServiceInterface.service(Integer)) && args(i)" 
+	// 			around 'pointcut-ref':"thePointcut", method:"invoke", 'arg-names':"i"
+	// 		} 
+	// 	} 
+	// }    
+	
 	aop { 
 		config("proxy-target-class":true) { 
-			aspect(id:"theAspectId", ref:"theAspect" ) { 
-				around method:"invoke", pointcut:"execution(* TheService.service(Integer)) && args(i)", 'arg-names':"i"
+			aspect(id:"anotherAspectId", ref:"anotherAspect" ) { 
+				around method:"invoke", pointcut: "execution(* *.AnotherServiceInterface.service(Integer)) && args(i)", 'arg-names':"i"
 			} 
 		} 
 	}    
+
+
+	// aop { 
+	// 	config("proxy-target-class":true) { 
+	// 		aspect(id:"theAspectId", ref:"theAspect" ) { 
+	// 			around method:"invoke", pointcut:"execution(* TheService.service(Integer)) && args(i)", 'arg-names':"i"
+	// 		} 
+	// 	} 
+	// }    
 	 
 	// aop { 
 	// 	config { 
