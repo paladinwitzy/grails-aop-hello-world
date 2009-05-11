@@ -1,4 +1,4 @@
 interface TheServiceInterface
 {
-	public void service(Integer i)
+	def service(Integer i)
 }
