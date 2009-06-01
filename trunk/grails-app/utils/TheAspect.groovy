@@ -1,33 +1,24 @@
 
-import org.aopalliance.intercept.MethodInterceptor;
-import org.aopalliance.intercept.MethodInvocation;
+import org.apache.commons.logging.LogFactory
+import org.aspectj.lang.ProceedingJoinPoint
 
-public class TheAspect implements MethodInterceptor {
+public class TheAspect {
 
-    public Object invoke(MethodInvocation method) throws Throwable 
+	def log = LogFactory.getLog(TheAspect)
+
+	def calls = 0
+
+    public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable 
 	{
-        log.debug("Before Invoking Method");
-        println("Before Invoking Method");
+		calls++
+		
+        log.debug("TheAspect: Before Invoking Method");
 
-        Object val = method.proceed();
+        Object val = joinPoint.proceed();
 
-        log.debug("After Invoking Method");
-        println("After Invoking Method");
+        log.debug("TheAspect: After Invoking Method");
 
-        return val + "updated value";
-    }
-
-    public Object invoke(MethodInvocation method, Integer i) throws Throwable 
-	{
-        log.debug("Before Invoking Method with ${i}");
-        println("Before Invoking Method with ${i}");
-
-        Object val = method.proceed();
-
-        log.debug("After Invoking Method with ${i}");
-        println("After Invoking Method with ${i}");
-
-        return val + "updated value";
+        return val + " the updated value";
     }
 
 }
