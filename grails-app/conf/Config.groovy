@@ -48,6 +48,12 @@ log4j = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
+
+	debug 	'grails.app.service',
+			'grails.app.controller', 
+			'TheAspect', 
+			'apackage.AnotherAspect'
+
     error  'org.codehaus.groovy.grails.web.servlet',  //  controllers
 	       'org.codehaus.groovy.grails.web.pages', //  GSP
 	       'org.codehaus.groovy.grails.web.sitemesh', //  layouts
