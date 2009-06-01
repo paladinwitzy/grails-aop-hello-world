@@ -143,12 +143,16 @@ class AspectTests extends GroovyTestCase
 		assertEquals 0, theAspect.calls
 		assertEquals 0, theService.serviceCalls
 		
-        theService.service(8)
+        def result = theService.service(8)
+
+		assertEquals 'Hello world from a service the updated value', result
 
 		assertEquals 1, theAspect.calls
 		assertEquals 1, theService.serviceCalls
 		
-        theService.service(8)
+        result = theService.service(8)
+
+		assertEquals 'Hello world from a service the updated value', result
 
 		assertEquals 2, theAspect.calls
 		assertEquals 2, theService.serviceCalls
@@ -160,12 +164,16 @@ class AspectTests extends GroovyTestCase
 		assertEquals 0, anotherAspect.calls
 		assertEquals 0, anotherService.serviceCalls
 		
-        anotherService.service(8)
+        result = anotherService.service(8)
+
+		assertEquals 'Hello world from another service! another updated value', result
 
 		assertEquals 1, anotherAspect.calls
 		assertEquals 1, anotherService.serviceCalls
 		
-        anotherService.service(8)
+        result = anotherService.service(8)
+
+		assertEquals 'Hello world from another service! another updated value', result
 
 		assertEquals 2, anotherAspect.calls
 		assertEquals 2, anotherService.serviceCalls
