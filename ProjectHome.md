@@ -1,0 +1,1 @@
+This project is to test out how to use Spring AOP in a Grails application.
